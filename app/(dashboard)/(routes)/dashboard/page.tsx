@@ -55,8 +55,9 @@ const DashboardPage = () => {
       userId: clerkUserID,
     };
 
+
     axios
-      .post(process.env.BASE_URL + "/tax", dataWithUserID)
+      .post(process.env.NEXT_PUBLIC_BASE_URL + "/tax", dataWithUserID)
       .then((response) => {
         console.log("Tax data submitted successfully", response.data);
         form.reset();
