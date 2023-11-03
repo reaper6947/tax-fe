@@ -41,6 +41,13 @@ for (let year = 1900; year <= 2030; year++) {
 const DashboardPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      income: "",
+      location: "Dhaka",
+      gender: "male",
+      age: "",
+      year: "",
+    },
   });
 
   const [selectedLocation, setSelectedLocation] = useState<string>("");
@@ -53,8 +60,10 @@ const DashboardPage = () => {
     const dataWithUserID = {
       ...values,
       userId: clerkUserID,
+      income: parseInt(values.income, 10),
+      year: parseInt(values.year, 10),
+      age: parseInt(values.age, 10),
     };
-
 
     axios
       .post(process.env.NEXT_PUBLIC_BASE_URL + "/tax", dataWithUserID)
