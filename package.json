@@ -20,11 +20,14 @@
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-toast": "^1.1.5",
     "@tanstack/react-table": "^8.10.7",
     "axios": "^1.6.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
+    "file-saver": "^2.0.5",
+    "jspdf": "^2.5.1",
     "lucide-react": "^0.291.0",
     "next": "14.0.1",
     "node": "^20.9.0",
@@ -38,6 +41,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/file-saver": "^2.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 
@@ -39,6 +40,7 @@ for (let year = 1900; year <= 2030; year++) {
 }
 
 const DashboardPage = () => {
+  const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -69,6 +71,13 @@ const DashboardPage = () => {
       .post(process.env.NEXT_PUBLIC_BASE_URL + "/tax", dataWithUserID)
       .then((response) => {
         console.log("Tax data submitted successfully", response.data);
+        toast({
+          description: "Your data has been recorded.",
+          style: {
+            background: "#111827",
+            color: "white",
+          },
+        });
         form.reset();
       })
       .catch((error) => {
