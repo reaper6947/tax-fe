@@ -10,13 +10,13 @@ ENV NODE_ENV development
 
 COPY --chown=node:node ./ ./
 
-RUN yarn install 
+RUN npm install 
 
 EXPOSE 8080
 
 
 
-CMD ["yarn","dev"]
+CMD ["npm","run","dev"]
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -50,7 +50,7 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
 
 
-RUN yarn build
+RUN npm run build
 
 # Production image, copy all the files and run next
 FROM base AS runner
