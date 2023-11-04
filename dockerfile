@@ -1,8 +1,8 @@
-FROM node:20-alpine AS base
+FROM node:19-alpine AS base
 
 FROM base  as development
 
-# RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache libc6-compat
 
 WORKDIR /frontend
 
@@ -61,6 +61,7 @@ RUN apk add --no-cache libc6-compat
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 ENV NEXT_TELEMETRY_DISABLED 1
+
 
 
 RUN addgroup --system --gid 1001 nodejs
